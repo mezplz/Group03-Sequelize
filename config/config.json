@@ -1,0 +1,29 @@
+{
+    "development": {
+        "username": "postgres",
+        "password": "postgres",
+        "database": "CookingRecipeDB",
+        "host": "localhost",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "postgres",
+        "password": "postgres",
+        "database": "CookingRecipeDB",
+        "host": "localhost",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "uinneffemqbulj",
+        "password": "7e1815208d35ab96fedcbc4fa3961b8de6a987b62ae9af43e52ad4ca2ce6464b",
+        "database": "d6trif2dmc9snq",
+        "host": "ec2-174-129-253-86.compute-1.amazonaws.com",
+        "dialect": "postgres",
+        "dialectOptions": {
+            "ssl": {
+                "require": true,
+                "rejectUnauthorized": false
+            }
+        }
+    }
+}
