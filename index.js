@@ -16,12 +16,48 @@ app.engine('hbs', hbs({
     extname : 'hbs',
     defaultLayout : 'index',
     layoutsDir : __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials'
+    partialsDir: __dirname + '/views/partials',
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true
+    },
+    helpers: {
+        is_even:  function(conditional, options) {
+            if((conditional % 2) == 0) {
+                return options.fn(this);
+            } 
+            else {
+                return options.inverse(this);
+            }
+        }
+    }
 }))
 app.set('view engine', 'hbs')
 
 app.get('/', function(req, res){
     res.render('index.hbs', {groupID: 3, name: 'Group 3'})
+})
+
+
+app.get('/recipes.html', function(req, res){
+    models.Recipe
+    .findAll()
+    .then( data => {
+        res.locals.data = data;
+        res.render('recipes', {id: 18127066, name: 'Tran Minh Anh'})
+
+    })
+})
+
+
+app.get('/read',(req,res)=>{
+    models.Recipe
+    .findAll()
+    .then(function(item){
+        res.json(item)
+    })
+    .catch(function(error){
+        res.json(error)
+    })
 })
 
 

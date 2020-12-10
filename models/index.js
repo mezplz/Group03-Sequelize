@@ -24,7 +24,7 @@ fs
     const model = require(path.join(__dirname, file))(sequelize, 
     Sequelize);
 
-      db[model.name] = model;
+    db[model.name] = model;
   });
 
 Object.keys(db).forEach(modelName => {
