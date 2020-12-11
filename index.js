@@ -12,7 +12,6 @@ app.get('/sync', function(req, res){
     })
 })
 
-
 var hbs = require('express-handlebars')
 app.engine('hbs', hbs({
     extname : 'hbs',
@@ -55,10 +54,10 @@ app.get('/read',(req,res)=>{
     models.Recipe
     .findAll()
     .then(function(item){
-        res.json(item)
+        res.json(HugeData)
     })
     .catch(function(error){
-        res.json(error)
+        res.json(HugeData)
     })
 })
 
@@ -81,4 +80,39 @@ app.get('/search', function(req, res){
         res.locals.data = data;
         res.render('recipes', {id: 18127066, name: 'Tran Minh Anh'})
     })
+})
+
+app.get('/:id', function(req, res){
+    let tt = req.params.id
+    models.Recipe.findOne({
+        where: {
+            title : tt
+        }
+    })
+    .then( data => {
+        models.Ingredient.findAll({
+            where: {
+                RecipeId : data.id
+            }
+        })
+        .then( ingr => {
+            models.Direction.findAll({
+                where: {
+                    RecipeId : data.id
+                }
+            })
+            .then (direct => {
+                res.locals.data = data;
+                res.locals.ingredient = ingr
+                res.locals.direction = direct
+                res.render('featured', {id: 18127066, name: 'Tran Minh Anh'})
+                console.log(direct)
+            })
+        })
+        
+    })
+})
+
+app.get('/featured.html', function(req, res){
+    res.render('featured')
 })

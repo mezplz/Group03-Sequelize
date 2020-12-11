@@ -44,49 +44,26 @@
 				<div id="content">
 					<div>
 						<div>
-							<h3>This is just a place holder, so you can see what the site would look like.</h3>
+							<h3>{{data.title}}</h3>
 							<p>
-								This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. If you&#39;re having problems editing this website template, then don&#39;t hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
+								{{data.description}} <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. If you&#39;re having problems editing this website template, then don&#39;t hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
 							</p>
-							<a href="index.html"><img src="images/pork-barbeque.jpg" alt="Image"></a>
+							<a href="index.html"><img src="{{data.smallImagePath}}" alt="Image"></a>
 							<h5>INGREDIENTS</h5>
 							<ol class="ingredients">
+								{{#each ingredient}}
 								<li>
-									10 grms This is just a place holder
+									{{quantity}} grms {{title}}
 								</li>
-								<li>
-									5 slices This is just a place holder
-								</li>
-								<li>
-									12 pcs. This is just a place holder
-								</li>
-								<li>
-									1 liter This is just a place holder
-								</li>
-								<li>
-									3/4 cup This is just a place holder
-								</li>
-								<li>
-									1/4 cup This is just a place holder
-								</li>
+								{{/each}}
 							</ol>
 							<h5>DIRECTIONS</h5>
 							<ol class="directions">
+								{{#each direction}}
 								<li>
-									You can remove any link to our website from this website template.
+									{{description}}
 								</li>
-								<li>
-									You&#39;re free to use this website template without linking back to us.
-								</li>
-								<li>
-									This is just a place holder, so you can see what the site would look like.
-								</li>
-								<li>
-									You can remove any link to our website from this website template.
-								</li>
-								<li>
-									You&#39;re free to use this website template without linking back to us.
-								</li>
+								{{/each}}
 							</ol>
 						</div>
 					</div>
@@ -155,7 +132,7 @@
 	<div class="footer">
 		<div>
 			<p>
-				&copy; Copyright 2012. All rights reserved
+				&copy; Copyright 2012. {{id}} - {{name}} All rights reserved
 			</p>
 		</div>
 	</div>
