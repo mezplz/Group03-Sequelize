@@ -11,8 +11,8 @@
 		<div>
 			<a href="index.html"><img src="images/logo.png" alt="Logo"></a>
 		</div>
-		<form action="index.html" id="form">
-			<input type="text" value="Search from our 10,000+ Recipes around the world" id="search">
+		<form action="/search" id="form">
+			<input type="text" name = "content" placeholder="Search from our 10,000+ Recipes around the world" id="search">
 			<input type="submit" value="" id="searchbtn">
 		</form>
 	</div>
@@ -44,83 +44,46 @@
 				<div id="content">
 					<div>
 						<ul>
+							{{#each data}}
+							{{#is_even @index}}
 							<li>
-								<a href="index.html"><img src="images/fried-chicken.jpg" alt="Image"></a>
+								<a href="index.html"><img src="{{smallImagePath}}" alt="Image"></a>
 								<div>
-									<h3><a href="featured.html">This is just a place holder</a></h3>
+									<h3><a href="featured.html">{{title}}</a></h3>
 									<p>
-										This website template has been designed by <a href="http://www.freewebsitetemplates.com/">Free Website Templates</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. If you&#39;re having problems editing this website template, then don&#39;t hesitate to ask for help on the <a href="http://www.freewebsitetemplates.com/forums/">Forums</a>.
+										{{summary}}
 									</p>
 								</div>
 							</li>
+							{{else}}
 							<li>
-								<a href="index.html"><img src="images/pastries.jpg" alt="Image"></a>
+								<a href="index.html"><img src="{{smallImagePath}}" alt="Image"></a>
 								<div>
-									<h3><a href="featured.html">This is just a place holder</a></h3>
+									<h3><a href="featured.html">{{title}}</a></h3>
 									<div>
 										<p>
-											This is just a place holder, so you can see what the site would look like. This is just a place holder, so you can see what the site would look like.
+										{{summary}}
 										</p>
 										<ul>
 											<li>
-												This is just a place holder
+												Lorem, ipsum dolor.
 											</li>
 											<li>
-												This is just a place holder
+												Lorem, ipsum dolor.
 											</li>
 											<li>
-												This is just a place holder
+												Lorem, ipsum dolor.
 											</li>
 											<li>
-												This is just a place holder
+												Lorem, ipsum dolor.
 											</li>
 										</ul>
 									</div>
 								</div>
 							</li>
-							<li>
-								<a href="index.html"><img src="images/cake.jpg" alt="Image"></a>
-								<div>
-									<h3><a href="featured.html">This is just a place holder</a></h3>
-									<p>
-										You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. You can remove any link to our website from this website template.
-									</p>
-								</div>
-							</li>
-							<li>
-								<a href="index.html"><img src="images/strawberry-juice.jpg" alt="Image"></a>
-								<div>
-									<h3><a href="featured.html">This is just a place holder</a></h3>
-									<div>
-										<p>
-											This is just a place holder, so you can see what the site would look like. This is just a place holder, so you can see what the site would look like.
-										</p>
-										<ul>
-											<li>
-												This is just a place holder
-											</li>
-											<li>
-												This is just a place holder
-											</li>
-											<li>
-												This is just a place holder
-											</li>
-											<li>
-												This is just a place holder
-											</li>
-										</ul>
-									</div>
-								</div>
-							</li>
-							<li>
-								<a href="index.html"><img src="images/rice-topping.jpg" alt="Image"></a>
-								<div>
-									<h3><a href="featured.html">This is just a place holder</a></h3>
-									<p>
-										You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us. This is just a place holder, so you can see what the site would look like. You can remove any link to our website from this website template, you&#39;re free to use this website template without linking back to us.
-									</p>
-								</div>
-							</li>
+							{{/is_even}}
+							{{/each}}
+							
 						</ul>
 					</div>
 				</div>
@@ -188,7 +151,7 @@
 	<div class="footer">
 		<div>
 			<p>
-				&copy; Copyright 2012. All rights reserved
+				&copy; Copyright 2012. {{id}} - {{name}}
 			</p>
 		</div>
 	</div>
